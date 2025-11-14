@@ -1,0 +1,64 @@
+name: Build SD images
+run-name: Build SD images${{':'}} ${{ github.event.inputs.Comment }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      Comment:
+        description: 'Comment'
+        required: true
+        default: ''
+        type: string
+jobs:
+  build:
+    #name: "SD job [Comment: ${{ github.event.inputs.Comment }}]"
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        board: [radxa03w]
+
+    steps:
+      - name: Delete huge unnecessary tools folder
+        run: rm -rf /opt/hostedtoolcache
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Build Docker image
+        run: CONTAINER_ENGINE=docker ./docker-dev.sh build
+
+      - name: Build image for ${{ matrix.board }}
+        run: |
+          set -e
+          mkdir images
+          echo "Building board: ${{ matrix.board }}"
+          CONTAINER_ENGINE=docker ./docker-dev.sh "${{ matrix.board }}"
+          IMAGE_DIR=buildroot/output/${{ matrix.board }}/images
+          if [[ "${{ matrix.board }}" == "aaw2b" ]]; then
+            TAR_NAME=images/${{ matrix.board }}-images.tar.xz
+            echo "Compressing entire images directory for aaw2b..."
+            tar -cJf "$TAR_NAME" -C "$IMAGE_DIR" .
+          else
+            IMG="$IMAGE_DIR/sdcard.img"
+            if [[ -f "$IMG" ]]; then
+              xz -c "$IMG" > images/${{ matrix.board }}-sdcard.img.xz
+            else
+              echo "WARNING: Image $IMG not found!"
+              #exit 1
+            fi
+          fi
+
+      - name: Upload Artifact for ${{ matrix.board }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.board }}-sdcard
+          path: ${{ matrix.board == 'aaw2b' && format('images/{0}-images.tar.xz', matrix.board) || format('images/{0}-sdcard.img.xz', matrix.board) }}
+
+  merge:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/upload-artifact/merge@v4
+        with:
+          name: aa-proxy-rs-merged
