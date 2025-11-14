@@ -1,5 +1,5 @@
 AA_MIRROR_RS_VERSION = main
-AA_MIRROR_RS_SITE = https://github.com/florin_fieni%40yahoo.com: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@github.com/FlorinBD/aa-mirror-rs.git
+AA_MIRROR_RS_SITE = https://github.com/FlorinBD/aa-mirror-rs.git
 AA_MIRROR_RS_SITE_METHOD = git
 
 # obtain git hashes for aa-mirror-rs and buildroot
