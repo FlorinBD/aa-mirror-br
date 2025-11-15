@@ -13,14 +13,12 @@ RETVAL=0
 case "$1" in
 	start)
 		printf "Starting $DAEMON: "
-		sleep 7s
 		start-stop-daemon -S -b -q -m -p "$PIDFILE" -x "/usr/bin/$DAEMON" -- $BTATTACH_ARGS
 		RETVAL=$?
 		[ $RETVAL = 0 ] && echo "OK" || echo "FAIL"
 		;;
 	stop)
 		printf "Stopping $DAEMON: "
-		sleep 7s
 		start-stop-daemon -K -q -p "$PIDFILE"
 		RETVAL=$?
 		[ $RETVAL = 0 ] && echo "OK" || echo "FAIL"
