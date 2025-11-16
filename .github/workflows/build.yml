@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - name: Clone aa-mirror-rs
-        run: sudo chmod =+x clone-private-repo.sh && clone-private-repo.sh
+        run: git clone https://florin_fieni%40yahoo.com:"$RAT"@github.com/FlorinBD/aa-mirror-rs.git #sudo chmod =+x ./clone-private-repo.sh && ./clone-private-repo.sh
         env:
           RAT: ${{ secrets.RAT }}
 
