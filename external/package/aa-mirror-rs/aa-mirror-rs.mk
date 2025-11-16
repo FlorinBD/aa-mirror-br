@@ -1,12 +1,12 @@
 AA_MIRROR_RS_VERSION = main
-AA_MIRROR_RS_SITE = https://github.com/FlorinBD/aa-mirror-rs.git
+AA_MIRROR_RS_SITE = git@github.com:FlorinBD/rpi_radxa_br_fr.git #https://github.com/FlorinBD/aa-mirror-rs.git
 AA_MIRROR_RS_SITE_METHOD = git
 
 # obtain git hashes for aa-mirror-rs and buildroot
 BUILDROOT_DIR = $(realpath $(TOPDIR)/..)
 BUILDROOT_COMMIT = $(shell git config --global --add safe.directory $(BUILDROOT_DIR) && git -C $(BUILDROOT_DIR) rev-parse HEAD)
 AA_MIRROR_RS_GIT_DIR = $(realpath $(DL_DIR)/aa-mirror-rs/git)
-AA_MIRROR_RS_COMMIT = $(shell git config --global --add safe.directory $(AA_MIRROR_RS_GIT_DIR) && git -C $(AA_MIRROR_RS_GIT_DIR) rev-parse HEAD && git remote add origin https://florin_fieni%40yahoo.com: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@github.com/FlorinBD/aa-mirror-rs.git)
+AA_MIRROR_RS_COMMIT = $(shell git config --global --add safe.directory $(AA_MIRROR_RS_GIT_DIR) && git -C $(AA_MIRROR_RS_GIT_DIR) rev-parse HEAD)
 
 define AA_MIRROR_RS_INSTALL_TARGET_CMDS
     $(INSTALL) -D -m 0755 $(@D)/target/$(RUSTC_TARGET_NAME)/release/aa-mirror-rs $(TARGET_DIR)/usr/bin
