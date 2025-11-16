@@ -18,6 +18,12 @@ jobs:
         board: [radxa03w]
 
     steps:
+      - name: Update secrets
+      - uses: actions/checkout@v4
+        with:
+          repository: FlorinBD/aa-mirror-rs
+          token: ${{ secrets.RAT }}
+
       - name: Delete huge unnecessary tools folder
         run: rm -rf /opt/hostedtoolcache
       - name: Checkout
