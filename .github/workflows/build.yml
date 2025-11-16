@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - name: Update secrets
-      - uses: actions/checkout@v4
+        uses: actions/checkout@v4
         with:
           repository: FlorinBD/aa-mirror-rs
           token: ${{ secrets.RAT }}
