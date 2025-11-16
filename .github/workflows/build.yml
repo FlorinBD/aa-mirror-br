@@ -21,9 +21,9 @@ jobs:
       - name: Update secrets
         uses: actions/checkout@v4
         with:
-          repository: FlorinBD/aa-mirror-rs
+          repository: 'FlorinBD/aa-mirror-rs'
           token: ${{ secrets.RAT }}
-          path: '/app/buildroot/dl/aa-mirror-rs'
+          #path: '/app/buildroot/dl/aa-mirror-rs'
 
       - name: Delete huge unnecessary tools folder
         run: rm -rf /opt/hostedtoolcache
