@@ -1,5 +1,5 @@
 AA_MIRROR_RS_VERSION = main
-AA_MIRROR_RS_SITE = git@github.com:FlorinBD/rpi_radxa_br_fr.git #https://github.com/FlorinBD/aa-mirror-rs.git
+AA_MIRROR_RS_SITE = https://github.com/FlorinBD/aa-mirror-rs.git
 AA_MIRROR_RS_SITE_METHOD = git
 
 # obtain git hashes for aa-mirror-rs and buildroot
