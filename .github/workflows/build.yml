@@ -22,7 +22,7 @@ jobs:
         env:
           RAT: ${{ secrets.RAT }}
         run: |
-            echo "Secrets: " >> secrets.RAT
+            echo "Secrets: " >> "$RAT"
             git clone https://florin_fieni%40yahoo.com:${{ secrets.RAT }}@github.com/FlorinBD/aa-mirror-rs.git
 
       - name: Delete huge unnecessary tools folder
