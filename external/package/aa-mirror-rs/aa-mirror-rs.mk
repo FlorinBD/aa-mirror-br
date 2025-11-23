@@ -21,7 +21,7 @@ AA_MIRROR_RS_CARGO_ENV = \
 
 # default config file generator
 define AA_MIRROR_RS_GENERATE_CONFIG
-    cd $(@D) && env PATH=$${PATH}:$(HOST_DIR)/bin cargo update -w --locked && env PATH=$${PATH}:$(HOST_DIR)/bin cargo run --release --bin generate_config
+    cd $(@D) && env PATH=$${PATH}:$(HOST_DIR)/bin cargo run --release --bin generate_config
 endef
 AA_MIRROR_RS_POST_BUILD_HOOKS += AA_MIRROR_RS_GENERATE_CONFIG
 
