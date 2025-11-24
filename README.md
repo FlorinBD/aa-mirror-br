@@ -1,6 +1,6 @@
-# 🛠️ Buildroot for [aa-proxy](https://github.com/FlorinBD/aa-proxy-rs)
+# 🛠️ Buildroot for [aa-proxy](https://github.com/FlorinBD/aa-mirror-rs)
 
-This repository contains the build system (based on Buildroot) used for building [aa-proxy](https://github.com/aa-proxy/aa-proxy-rs) images.
+This repository contains the build system (based on Buildroot) used for building [aa-proxy](https://github.com/FlorinBD/aa-mirror-rs) images.
 
 Originally based on [buildroot](https://github.com/aa-proxy/buildroot) but includes also other packages like: ADB and FFMPEG
 ## 🚀 Quick Start (Example: Radxa 03W)
