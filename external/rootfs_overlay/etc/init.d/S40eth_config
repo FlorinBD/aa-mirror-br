@@ -3,7 +3,7 @@
 # Configure eth0 based on eth_mode in config.toml
 #
 
-CONFIG_FILE="/etc/aa-proxy-rs/config.toml"
+CONFIG_FILE="/etc/aa-mirror-rs/config.toml"
 
 case "$1" in
     start)
