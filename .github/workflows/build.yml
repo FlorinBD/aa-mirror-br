@@ -61,4 +61,4 @@ jobs:
     steps:
       - uses: actions/upload-artifact/merge@v4
         with:
-          name: aa-proxy-rs-merged
+          name: aa-mirror-rs-merged
