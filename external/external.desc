@@ -1,3 +1,2 @@
-#don't change this, we get build error
-name: AA_PROXY_OS
-desc: aa-proxy OS
+name: AA_MIRROR_OS
+desc: aa-mirror OS
