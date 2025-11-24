@@ -2,8 +2,8 @@ loop_on_disconnect 1
 
 storage "/" "root folder" "rw,locked"
 
-manufacturer "aa-proxy"
-product "aa-proxy{{MODEL}}"
+manufacturer "aa-mirror"
+product "aa-mirror{{MODEL}}"
 serial "{{SERIAL}}"
 firmware_version "{{FIRMWARE_VER}}"
 usb_vendor_id 0x18D1
