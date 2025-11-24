@@ -3,8 +3,8 @@
 # Configure USB gadget interfaces
 #
 
-MANUFACTURER="aa-proxy"
-PRODUCT="aa-proxy{{MODEL}}"
+MANUFACTURER="aa-mirror"
+PRODUCT="aa-mirror{{MODEL}}"
 SERIAL_NUMBER="{{SERIAL}}"
 
 ACCESSORY_GADGET_NAME="accessory"
@@ -15,7 +15,7 @@ FUNCTIONFS_PATH=/dev/ffs-mtp
 DAEMON=umtprd
 PIDFILE="/var/run/$DAEMON.pid"
 
-CONFIG_FILE="/etc/aa-proxy-rs/config.toml"
+CONFIG_FILE="/etc/aa-mirror-rs/config.toml"
 RETVAL=0
 
 start() {
