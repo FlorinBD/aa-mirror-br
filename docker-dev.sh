@@ -53,11 +53,11 @@ if [[ "$CMD" == "build" ]]; then
     "$ENGINE" build \
         --build-arg UID=$(id -u) \
         --build-arg GID=$(id -g) \
-        -t aaproxybr .
+        -t aamirrorbr .
 else
     echo "Running container with $ENGINE: aaproxybr $CMD $*"
     "$ENGINE" run $USERNS_ARG $INTERACTIVE --rm \
         -v "$(pwd):/app":z \
-        aaproxybr \
+        aamirrorbr \
         "$CMD" "$@"
 fi
