@@ -12,6 +12,12 @@ define AA_MIRROR_RS_INSTALL_TARGET_CMDS
     $(INSTALL) -D -m 0755 $(@D)/target/$(RUSTC_TARGET_NAME)/release/aa-mirror-rs $(TARGET_DIR)/usr/bin
     $(INSTALL) -D -m 0644 $(@D)/target/release/config.toml $(TARGET_DIR)/etc/aa-mirror-rs/config.toml
     $(INSTALL) -D -m 0755 $(@D)/contrib/S93aa-mirror-rs $(TARGET_DIR)/etc/init.d
+    #copy RES files
+    $(INSTALL) -D -m 0644 $(@D)/images/AndroidIcon32.png $(TARGET_DIR)/etc/aa-mirror-rs/res/AndroidIcon32.png
+    $(INSTALL) -D -m 0644 $(@D)/images/AndroidIcon64.png $(TARGET_DIR)/etc/aa-mirror-rs/res/AndroidIcon64.png
+    $(INSTALL) -D -m 0644 $(@D)/images/AndroidIcon128.png $(TARGET_DIR)/etc/aa-mirror-rs/res/AndroidIcon128.png
+    $(INSTALL) -D -m 0644 $(@D)/images/130dpi.png $(TARGET_DIR)/etc/aa-mirror-rs/res/130dpi.png
+    $(INSTALL) -D -m 0644 $(@D)/images/160dpi.png $(TARGET_DIR)/etc/aa-mirror-rs/res/160dpi.png
 endef
 
 # pass git hashes as env variables
