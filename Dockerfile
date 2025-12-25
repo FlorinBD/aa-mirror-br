@@ -15,6 +15,7 @@ RUN apt-get update && \
     python3 \
     python3-setuptools \
     git \
+    liblzma-dev \
     unzip \
     bc \
     vim \
