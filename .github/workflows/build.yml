@@ -9,6 +9,9 @@ on:
         required: false
         default: ''
         type: string
+env:
+  BUILD_NAME: ''
+  
 jobs:
   build:
     #name: "SD job [Comment: ${{ github.event.inputs.Comment }}]"
@@ -18,6 +21,15 @@ jobs:
         board: [radxa03w]
 
     steps:
+      - name: Get last commit comment
+        run: |
+          gh api \
+          -H "Accept: application/vnd.github+json" \
+          -H "X-GitHub-Api-Version: 2022-11-28" \
+          /repos/OWNER/REPO/comments
+        env:
+          OWNER: FlorinBD
+          REPO: aa-mirror-rs
       - name: Delete huge unnecessary tools folder
         run: rm -rf /opt/hostedtoolcache
       - name: Checkout
