@@ -21,6 +21,7 @@ else
     OUTPUT=${BUILDROOT_DIR}/output/${ARG}
     mkdir -p ${OUTPUT}
     cd ${BUILDROOT_DIR}
+    /utils/update-rust
     make BR2_EXTERNAL=../external/ O=${OUTPUT} gen_${ARG}_defconfig
     cd ${OUTPUT}
     make -j$(nproc --all)
