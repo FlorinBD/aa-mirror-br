@@ -21,7 +21,7 @@ else
     OUTPUT=${BUILDROOT_DIR}/output/${ARG}
     mkdir -p ${OUTPUT}
     cd ${BUILDROOT_DIR}
-    ./utils/update-rust 1.91.0
+    #./utils/update-rust 1.91.0 #needed by adb_client 2.1.19
     make BR2_EXTERNAL=../external/ O=${OUTPUT} gen_${ARG}_defconfig
     cd ${OUTPUT}
     make -j$(nproc --all)
