@@ -18,6 +18,7 @@ define AA_MIRROR_RS_INSTALL_TARGET_CMDS
     $(INSTALL) -D -m 0644 $(@D)/images/AndroidIcon128.png $(TARGET_DIR)/etc/aa-mirror-rs/res/AndroidIcon128.png
     $(INSTALL) -D -m 0644 $(@D)/images/130dpi.png $(TARGET_DIR)/etc/aa-mirror-rs/res/130dpi.png
     $(INSTALL) -D -m 0644 $(@D)/images/160dpi.png $(TARGET_DIR)/etc/aa-mirror-rs/res/160dpi.png
+    $(INSTALL) -D -m 0644 $(@D)/contrib/scrcpy-server $(TARGET_DIR)/etc/aa-mirror-rs/scrcpy-server
 endef
 
 # pass git hashes as env variables
