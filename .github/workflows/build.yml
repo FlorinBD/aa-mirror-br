@@ -34,7 +34,7 @@ jobs:
           git fetch origin
           LAST_COMMIT_MESSAGE=$(git log -1 --pretty=%B)
           echo "Last commit message: $LAST_COMMIT_MESSAGE"
-          echo $LAST_COMMIT_MESSAGE >> $GITHUB_OUTPUT
+          echo LAST_COMMIT_MESSAGE >> $GITHUB_OUTPUT
       - name: last commit:${{ steps.commit.outputs.msg }}
         run: echo ${{ steps.commit.outputs.msg }}
           
