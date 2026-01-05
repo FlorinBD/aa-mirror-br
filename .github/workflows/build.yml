@@ -28,13 +28,14 @@ jobs:
         with:
           submodules: recursive
       - name: Clone aa-mirror-rs repo to get last commit
+        id: commit
         run: |
           git clone https://github.com/FlorinBD/aa-mirror-rs.git
           cd aa-mirror-rs
           git fetch origin
           LAST_COMMIT_MESSAGE=$(git log -1 --pretty=%B)
           echo "Last commit message: $LAST_COMMIT_MESSAGE"
-          echo "msg=$(git log -1 --pretty=%B)" >> $GITHUB_OUTPUT
+          echo "msg=$LAST_COMMIT_MESSAGE" >> $GITHUB_OUTPUT
       - name: last commit:${{ steps.commit.outputs.msg }}
         run: echo ${{ steps.commit.outputs.msg }}
           
