@@ -27,7 +27,16 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: recursive
-
+      - name: Clone aa-mirror-rs repository
+        run: |
+          git clone https://github.com/FlorinBD/aa-mirror-rs.git
+          cd aa-mirror-rs
+          git fetch origin
+          LAST_COMMIT_MESSAGE=$(git log -1 --pretty=%B)
+          echo "Last commit message: $LAST_COMMIT_MESSAGE"
+      - name: last commit:$LAST_COMMIT_MESSAGE
+        run: echo $LAST_COMMIT_MESSAGE
+          
       - name: Build Docker image
         run: CONTAINER_ENGINE=docker ./docker-dev.sh build
 
