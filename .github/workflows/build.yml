@@ -34,8 +34,8 @@ jobs:
           git fetch origin
           LAST_COMMIT_MESSAGE=$(git log -1 --pretty=%B)
           echo "Last commit message: $LAST_COMMIT_MESSAGE"
-      - name: last commit:$LAST_COMMIT_MESSAGE
-        run: echo $LAST_COMMIT_MESSAGE
+      - name: last commit:"$LAST_COMMIT_MESSAGE"
+        run: echo "$LAST_COMMIT_MESSAGE"
           
       - name: Build Docker image
         run: CONTAINER_ENGINE=docker ./docker-dev.sh build
