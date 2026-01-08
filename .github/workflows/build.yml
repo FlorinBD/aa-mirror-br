@@ -37,7 +37,7 @@ jobs:
           echo "Last commit message: $LAST_COMMIT_MESSAGE"
           echo "msg=$LAST_COMMIT_MESSAGE" >> $GITHUB_OUTPUT
       - name: last commit:${{ steps.commit.outputs.msg }}
-        run: echo ${{ steps.commit.outputs.msg }}
+        run: echo "${{ steps.commit.outputs.msg }}"
           
       - name: Build Docker image
         run: CONTAINER_ENGINE=docker ./docker-dev.sh build
