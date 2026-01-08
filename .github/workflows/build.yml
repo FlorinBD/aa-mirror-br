@@ -33,11 +33,19 @@ jobs:
           git clone https://github.com/FlorinBD/aa-mirror-rs.git
           cd aa-mirror-rs
           git fetch origin
-          LAST_COMMIT_MESSAGE=$(git log -1 --pretty=%B)
-          echo "Last commit message: $LAST_COMMIT_MESSAGE"
+          # get commit SHA and message
+          LAST_COMMIT_SHA=$(git rev-parse HEAD)
+          LAST_COMMIT_MESSAGE=$(git log -1 --pretty=%B | tr -d '\n')
+          # form GitHub commit link
+          REPO_URL="https://github.com/FlorinBD/aa-mirror-rs"
+          COMMIT_LINK="$REPO_URL/commit/$LAST_COMMIT_SHA"
+          # set outputs
           echo "msg=$LAST_COMMIT_MESSAGE" >> $GITHUB_OUTPUT
-      - name: last commit:${{ steps.commit.outputs.msg }}
-        run: echo "${{ steps.commit.outputs.msg }}"
+          echo "link=$COMMIT_LINK" >> $GITHUB_OUTPUT
+      - name: Print last commit info
+        run: |
+          echo "Last commit message: ${{ steps.commit.outputs.msg }}"
+          echo "Commit link: ${{ steps.commit.outputs.link }}"
           
       - name: Build Docker image
         run: CONTAINER_ENGINE=docker ./docker-dev.sh build
