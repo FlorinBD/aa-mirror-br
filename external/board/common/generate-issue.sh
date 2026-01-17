@@ -5,16 +5,14 @@ git config --global --add safe.directory "$BUILDROOT_DIR"
 BUILDROOT_COMMIT=$(git -C "$BUILDROOT_DIR" log -n1 --pretty=format:%h HEAD)
 
 cat <<EOF > "$TARGET_DIR/etc/issue"
-Welcome to aa-proxy
+Welcome to aa-mirror
 
-                             _
-  __ _  __ _       _ __ ___ (_)_ __ _ __ ___  _ __      _ __ ___ 
- / _` |/ _` |_____| '_ ` _ \| | '__| '__/ _ \| '__|____| '__/ __|
-| (_| | (_| |_____| | | | | | | |  | | | (_) | | |_____| |  \__ \
- \__,_|\__,_|     |_| |_| |_|_|_|  |_|  \___/|_|       |_|  |___/
-                                                                
+ .---.-.---.-.______.-----.----.-----.--.--.--.--.
+ |  _  |  _  |______|  _  |   _|  _  |_   _|  |  |
+ |___._|___._|      |   __|__| |_____|__.__|___  |
+                    |__|                   |_____|
 
-https://github.com/aa-proxy/aa-proxy-rs
+https://github.com/FlorinBD/aa-mirror-rs
 build date: $(date +%Y-%m-%d), br# $BUILDROOT_COMMIT
 
 EOF
