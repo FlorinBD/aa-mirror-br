@@ -12,7 +12,7 @@ Welcome to aa-proxy
  / _` |/ _` |_____| '_ ` _ \| | '__| '__/ _ \| '__|____| '__/ __|
 | (_| | (_| |_____| | | | | | | |  | | | (_) | | |_____| |  \__ \
  \__,_|\__,_|     |_| |_| |_|_|_|  |_|  \___/|_|       |_|  |___/
-                                                                  
+                                                                                          
 
 https://github.com/aa-proxy/aa-proxy-rs
 build date: $(date +%Y-%m-%d), br# $BUILDROOT_COMMIT
