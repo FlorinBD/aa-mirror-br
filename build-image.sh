@@ -37,7 +37,15 @@ else
     make BR2_EXTERNAL=../external O=${OUTPUT} gen_${ARG}_defconfig
 
     cd ${OUTPUT}
-
+    
+    # --------------------------------------------------
+    # Force ATF rebuild if bl31.elf is missing
+    # --------------------------------------------------
+    ATF_ELF="${OUTPUT}/images/bl31.elf"
+    if [[ ! -f "$ATF_ELF" ]]; then
+        echo "bl31.elf missing, forcing ATF rebuild..."
+        rm -rf "${OUTPUT}/build/arm-trusted-firmware-"*
+    fi
     # --------------------------------------------------
     # Build
     # --------------------------------------------------
