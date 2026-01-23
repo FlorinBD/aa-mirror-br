@@ -1,5 +1,18 @@
 #!/bin/bash
 
+# -------------------------------
+# Compute hash of external packages for cache key
+# -------------------------------
+compute_package_hash() {
+    BUILDROOT_DIR="$(pwd)/buildroot"
+    if [[ -d "$BUILDROOT_DIR/package" ]]; then
+        # Hash all files in package/ recursively
+        find "$BUILDROOT_DIR/package" -type f -exec sha256sum {} + | sort | sha256sum | awk '{print $1}'
+    else
+        echo "nopkg"
+    fi
+}
+
 if [ -z "$1" ]; then
     echo "Error: No argument provided."
     echo "Usage: $0 <board/shell>"
