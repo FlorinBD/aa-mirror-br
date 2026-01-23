@@ -52,8 +52,10 @@ else
     # ---------------------------
     DDR_FIRMWARE="${BUILDROOT_DIR}/dl/rk3566_ddr_528MHz_ultra_v1.10.bin"
     if [[ ! -f "$DDR_FIRMWARE" ]]; then
-        echo "DDR firmware missing, forcing re-download..."
-        rm -f "$DDR_FIRMWARE"
+        echo "DDR firmware missing, downloading..."
+        mkdir -p "$(dirname "$DDR_FIRMWARE")"
+        wget -O "$DDR_FIRMWARE" \
+          https://opensource.rock-chips.com/rk3566_ddr_528MHz_ultra_v1.10.bin
     fi
     # --------------------------------------------------
     # Build
