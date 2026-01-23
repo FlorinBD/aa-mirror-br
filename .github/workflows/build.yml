@@ -48,7 +48,12 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.ccache
-          key: ccache-${{ runner.os }}-${{ hashFiles('buildroot/.config','external/**') }}
+          key: ccache-${{ runner.os }}-${{ hashFiles('buildroot/.config',
+              'external/**/Config.in',
+              'external/**/*.mk',
+              'external/**/*.patch',
+              'external/**/*.sh',
+              'external/configs/**') }}
           restore-keys: |
             ccache-${{ runner.os }}-
             
