@@ -23,14 +23,6 @@ else
     cd ${BUILDROOT_DIR}
     #./utils/update-rust 1.91.0 #needed by adb_client 2.1.19
 
-    # --------------------------------------------------
-    # Enable ccache (CI-safe, non-interactive)
-    # --------------------------------------------------
-    if grep -q "^# BR2_CCACHE is not set" .config; then
-        sed -i 's/^# BR2_CCACHE is not set/BR2_CCACHE=y/' .config
-    fi
-
-    make BR2_EXTERNAL=../external olddefconfig
    # --------------------------------------------------
     # Generate board defconfig
     # --------------------------------------------------
@@ -38,25 +30,6 @@ else
 
     cd ${OUTPUT}
     
-    # --------------------------------------------------
-    # Force ATF rebuild if bl31.elf is missing
-    # --------------------------------------------------
-    ATF_ELF="${OUTPUT}/images/bl31.elf"
-    if [[ ! -f "$ATF_ELF" ]]; then
-        echo "bl31.elf missing, forcing ATF rebuild..."
-        rm -rf "${OUTPUT}/build/arm-trusted-firmware-"*
-    fi
-
-    # ---------------------------
-    # Ensure DDR firmware exists
-    # ---------------------------
-    DDR_FIRMWARE="${BUILDROOT_DIR}/dl/rk3566_ddr_528MHz_ultra_v1.10.bin"
-    if [[ ! -f "$DDR_FIRMWARE" ]]; then
-        echo "DDR firmware missing, downloading..."
-        mkdir -p "$(dirname "$DDR_FIRMWARE")"
-        wget -O "$DDR_FIRMWARE" \
-          https://opensource.rock-chips.com/rk3566_ddr_528MHz_ultra_v1.10.bin
-    fi
     # --------------------------------------------------
     # Build
     # --------------------------------------------------
