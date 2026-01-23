@@ -46,6 +46,15 @@ else
         echo "bl31.elf missing, forcing ATF rebuild..."
         rm -rf "${OUTPUT}/build/arm-trusted-firmware-"*
     fi
+
+    # ---------------------------
+    # Ensure DDR firmware exists
+    # ---------------------------
+    DDR_FIRMWARE="${BUILDROOT_DIR}/dl/rk3566_ddr_528MHz_ultra_v1.10.bin"
+    if [[ ! -f "$DDR_FIRMWARE" ]]; then
+        echo "DDR firmware missing, forcing re-download..."
+        rm -f "$DDR_FIRMWARE"
+    fi
     # --------------------------------------------------
     # Build
     # --------------------------------------------------
