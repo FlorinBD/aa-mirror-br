@@ -27,7 +27,26 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: recursive
-          
+
+      - name: Restore Buildroot cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            buildroot/dl
+            buildroot/output/*/host
+            buildroot/output/*/build
+          key: br-${{ runner.os }}-${{ hashFiles('buildroot/.config','external/**') }}
+          restore-keys: |
+            br-${{ runner.os }}-
+
+      - name: Restore ccache
+        uses: actions/cache@v4
+        with:
+          path: ~/.ccache
+          key: ccache-${{ runner.os }}-${{ hashFiles('buildroot/.config','external/**') }}
+          restore-keys: |
+            ccache-${{ runner.os }}-
+            
       - name: Build Docker image
         run: CONTAINER_ENGINE=docker ./docker-dev.sh build
 
