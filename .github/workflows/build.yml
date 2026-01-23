@@ -35,7 +35,12 @@ jobs:
             buildroot/dl
             buildroot/output/*/host
             buildroot/output/*/build
-          key: br-${{ runner.os }}-${{ hashFiles('buildroot/.config','external/**') }}
+          key: br-${{ runner.os }}-${{ hashFiles('buildroot/.config',
+              'external/**/Config.in',
+              'external/**/*.mk',
+              'external/**/*.patch',
+              'external/**/*.sh',
+              'external/configs/**') }}
           restore-keys: |
             br-${{ runner.os }}-
 
