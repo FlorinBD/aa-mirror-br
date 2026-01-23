@@ -22,7 +22,25 @@ else
     mkdir -p ${OUTPUT}
     cd ${BUILDROOT_DIR}
     #./utils/update-rust 1.91.0 #needed by adb_client 2.1.19
-    make BR2_EXTERNAL=../external/ O=${OUTPUT} gen_${ARG}_defconfig
+
+    # --------------------------------------------------
+    # Enable ccache (CI-safe, non-interactive)
+    # --------------------------------------------------
+    if grep -q "^# BR2_CCACHE is not set" .config; then
+        sed -i 's/^# BR2_CCACHE is not set/BR2_CCACHE=y/' .config
+    fi
+
+    make BR2_EXTERNAL=../external olddefconfig
+   # --------------------------------------------------
+    # Generate board defconfig
+    # --------------------------------------------------
+    make BR2_EXTERNAL=../external O=${OUTPUT} gen_${ARG}_defconfig
+
     cd ${OUTPUT}
+
+    # --------------------------------------------------
+    # Build
+    # --------------------------------------------------
+    make -j$(nproc --all)
     make -j$(nproc --all)
 fi
