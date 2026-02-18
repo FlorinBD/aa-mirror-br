@@ -1,0 +1,17 @@
+ctrl_interface=/var/run/wpa_supplicant
+update_config=1
+country=US
+
+network={
+    ssid="AndroidAP356b"
+    psk="florinN9"
+    key_mgmt=WPA-PSK
+    priority=5
+    scan_ssid=1
+    bgscan="simple:30:-70:300"
+}
+
+network={
+    ssid="OpenNetwork"
+    key_mgmt=NONE
+}
