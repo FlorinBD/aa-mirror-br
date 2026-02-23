@@ -4,8 +4,8 @@ fast_reauth=1
 country=US
 
 network={
-    ssid="{{STA_SSID}}"
-    psk="{{STA_PWD}}"
+    ssid={{STA_SSID}}
+    psk={{STA_PWD}}
     key_mgmt=WPA-PSK
     priority=5
     scan_ssid=1
