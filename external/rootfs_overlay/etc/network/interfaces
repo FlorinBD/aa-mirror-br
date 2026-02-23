@@ -24,7 +24,5 @@ auto wlan0
 iface wlan0 inet dhcp
   pre-up iw wlan0 set power_save off
   pre-up wpa_supplicant -D nl80211 -i wlan0 -c /etc/wpa_supplicant.conf -B
-  # ensure IP assigned
-  post-up udhcpc -i wlan0
   post-down killall -q wpa_supplicant
 
