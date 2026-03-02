@@ -15,4 +15,5 @@ network={
 network={
     ssid={{STA_SSID}}
     key_mgmt=NONE
+    priority=1
 }
