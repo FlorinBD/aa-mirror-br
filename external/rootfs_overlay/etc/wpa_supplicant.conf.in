@@ -13,6 +13,6 @@ network={
 }
 
 network={
-    ssid="OpenNetwork"
+    ssid={{STA_SSID}}
     key_mgmt=NONE
 }
