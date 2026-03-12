@@ -10,6 +10,8 @@ network={
     priority=5
     scan_ssid=1
     bgscan="simple:30:-70:300"
+    scan_freq={{STA_FREQ}}
+    freq_list={{STA_FREQ}}
 }
 
 network={
