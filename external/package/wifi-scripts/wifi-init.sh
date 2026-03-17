@@ -16,7 +16,14 @@ sleep 1  # allow driver to initialize
 # --- Decide mode ---
 if [ "$AA_MODE" = "Mirror" ]; then
     echo "Starting Wi-Fi in STA mode"
+    
+    # Disable power save
+    iw "$WLAN_IF" set power_save off
 
+    # Set hostname
+    HOSTNAME=$(cat /etc/hostname 2>/dev/null || echo "aa-mirror")
+    hostname "$HOSTNAME"
+    
     # Start wpa_supplicant with static config
     wpa_supplicant -B -D nl80211 -i "$WLAN_IF" -c /etc/wpa_supplicant.conf
 
