@@ -1,4 +1,0 @@
-config BR2_PACKAGE_WIFI_SCRIPTS
-    bool "wifi init/stop scripts"
-    help
-      Installs wifi-init.sh and wifi-stop.sh to /usr/bin with executable permissions
