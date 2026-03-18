@@ -3,7 +3,7 @@
 ################################################################################
 
 WIFI_SCRIPTS_VERSION = 1
-WIFI_SCRIPTS_SITE = $(TOPDIR)/package/wifi-scripts
+WIFI_SCRIPTS_SITE = $(BR2_EXTERNAL_AA_MIRROR_OS_PATH)/package/wifi-scripts
 WIFI_SCRIPTS_SITE_METHOD = local
 WIFI_SCRIPTS_LICENSE = GPL-2
 WIFI_SCRIPTS_LICENSE_FILES =
