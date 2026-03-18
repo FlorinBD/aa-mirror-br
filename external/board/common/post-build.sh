@@ -8,3 +8,5 @@ ${BR2_EXTERNAL_AA_MIRROR_OS_PATH}/board/common/generate-issue.sh
 source ${BR2_EXTERNAL_AA_MIRROR_OS_PATH}/board/common/add_usb_serial.sh
 
 
+chmod 755 "${TARGET_DIR}/usr/bin/wifi-init.sh"
+chmod 755 "${TARGET_DIR}/usr/bin/wifi-stop.sh"
