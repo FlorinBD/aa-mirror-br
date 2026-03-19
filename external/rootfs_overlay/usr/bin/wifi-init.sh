@@ -7,7 +7,7 @@ CONFIG_FILE=/etc/aa-mirror-rs/config.toml
 WLAN_IF=wlan0
 
 # --- Parse TOML ---
-AA_MODE=$(sed -n 's/.*aa_mode *= *"\(.*\)"/\1/p' "$CONFIG_FILE")
+AA_MODE=$(sed -n 's/^[[:space:]]*aa_mode[[:space:]]*=[[:space:]]*"\([^"]*\)".*/\1/p' "$CONFIG_FILE")
 
 # --- Bring interface up ---
 ip link set "$WLAN_IF" up
