@@ -33,10 +33,6 @@ if [ "$AA_MODE" = "Mirror" ]; then
 else
     echo "Starting Wi-Fi in default AP mode"
 
-    # Assign static IP (10.0.0.1/24)
-    ip addr flush dev "$WLAN_IF"
-    ip addr add 10.0.0.1/24 dev "$WLAN_IF"
-
     # Disable power save
     iw "$WLAN_IF" set power_save off
 
