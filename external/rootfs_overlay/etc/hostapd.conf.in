@@ -11,8 +11,8 @@ channel={{CHANNEL}}
 ieee80211d=1
 ieee80211h=1
 
-beacon_int=20
-dtim_period=1
+#beacon_int=20
+#dtim_period=1
 wmm_enabled=1
 
 ht_capab=[HT40+][SHORT-GI-20][SHORT-GI-40][RX-STBC1]
