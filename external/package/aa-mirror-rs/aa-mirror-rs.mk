@@ -24,7 +24,8 @@ endef
 # pass git hashes as env variables
 AA_MIRROR_RS_CARGO_ENV = \
     AA_MIRROR_COMMIT="$(AA_MIRROR_RS_COMMIT)" \
-    BUILDROOT_COMMIT="$(BUILDROOT_COMMIT)"
+    BUILDROOT_COMMIT="$(BUILDROOT_COMMIT)" \
+    AA_MIRROR_BOARD="$(notdir $(patsubst %/,%,$(CONFIG_DIR)))"
 
 # default config file generator
 define AA_MIRROR_RS_GENERATE_CONFIG
